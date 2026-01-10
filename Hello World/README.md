@@ -12,7 +12,6 @@ Instructions for using the software:
 
 1. Open Prefered IDE
 2. Run the file by clicking the run button
-3.
 
 ## Development Environment
 
@@ -25,13 +24,9 @@ To recreate the development environment, you need the following software and/or 
 I found these websites useful in developing this software:
 
 * [Geeks for Geeks](https://www.geeksforgeeks.org/cpp/writing-first-c-program-hello-world-example/)
-*
-*
 
 ## Future Work
 
 The following items I plan to fix, improve, and/or add to this project in the future:
 
-* [ ] I'd loop the hello world 3 times.
-* [ ]
-* [ ]
+* [I'd loop the hello world 3 times. ] 
