@@ -16,12 +16,13 @@ private:
 
 //create constructor
 public:
-    WorkShift(std::string name, std::string day, std::string start, std::string end) {
-        employeeName = name;
-        dayOfWeek = day;
-        startTime = start;
-        endTime = end;
-    }
+    WorkShift(std::string name, std::string day, std::string start, std::string end) //{
+        : employeeName(name), dayOfWeek(day), startTime(start), endTime(end) {}
+    //     employeeName = name;
+    //     dayOfWeek = day;
+    //     startTime = start;
+    //     endTime = end;
+    // }
 };
 
 //get data from employee csv file
