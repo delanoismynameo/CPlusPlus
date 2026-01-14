@@ -13,15 +13,20 @@ private:
     std::string dayOfWeek; //monday, etc.
     std::string startTime;  // 09:00
     std::string endTime;    // 17:00
-}
 
-//call to main function here
-int main() {
-    workPlz();
-}
+//create constructor
+public:
+    WorkShift(std::string name, std::string day, std::string start, std::string end) {
+        employeeName = name;
+        dayOfWeek = day;
+        startTime = start;
+        endTime = end;
+    }
+};
 
-char readCSV() {
 
+std::string readCSV() {
+    return;
 }
 
 
@@ -35,4 +40,9 @@ std::time_t workPlz() {
     std::cout << localTime << std::endl;
 
     return work;
+}
+
+//call to main function here
+int main() {
+    workPlz();
 }

@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/Users/orgo1/Documents/Code/CPlusPlus",
-      "program": "c:/Users/orgo1/Documents/Code/CPlusPlus/build/Debug/outDebug",
+      "cwd": "c:/Users/orgo1/Documents/Code/CPlusPlus/Seat Chart Application",
+      "program": "c:/Users/orgo1/Documents/Code/CPlusPlus/Seat Chart Application/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
