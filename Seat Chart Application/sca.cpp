@@ -9,6 +9,8 @@
 
 class WorkShift {
 private:
+    static int nextID;
+    int shiftID;
     std::string employeeName; //bob, etc.
     std::string dayOfWeek;    //monday, etc.
     std::string startTime;    // 09:00
@@ -17,7 +19,10 @@ private:
 //create constructor
 public:
     WorkShift(std::string name, std::string day, std::string start, std::string end) //{
-        : employeeName(name), dayOfWeek(day), startTime(start), endTime(end) {}
+        : employeeName(name), dayOfWeek(day), startTime(start), endTime(end) {
+            shiftID = nextID++; //assing current ID then set up next ID
+        }
+        int getID() const {return shiftID;}
     //     employeeName = name;
     //     dayOfWeek = day;
     //     startTime = start;
