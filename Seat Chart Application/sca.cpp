@@ -10,9 +10,9 @@
 class WorkShift {
 private:
     std::string employeeName; //bob, etc.
-    std::string dayOfWeek; //monday, etc.
-    std::string startTime;  // 09:00
-    std::string endTime;    // 17:00
+    std::string dayOfWeek;    //monday, etc.
+    std::string startTime;    // 09:00
+    std::string endTime;      // 17:00
 
 //create constructor
 public:
