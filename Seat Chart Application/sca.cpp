@@ -1,7 +1,7 @@
 #include <iostream>
 #include <iomanip>
 #include <chrono>
-#include<ctime>
+#include <ctime>
 #include <fstream>
 #include <string>
 #include <sstream>
@@ -13,8 +13,8 @@ private:
     int shiftID;
     std::string employeeName; //bob, etc.
     std::string dayOfWeek;    //monday, etc.
-    std::string startTime;    // 09:00
-    std::string endTime;      // 17:00
+    std::string startTime;    // 09:00, etc.
+    std::string endTime;      // 17:00, etc
 
 //create constructor
 public:
