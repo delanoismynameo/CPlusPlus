@@ -31,8 +31,33 @@ public:
 };
 
 //get data from employee csv file
-std::string readCSV() {
-    return;
+std::vector<WorkShift> readCSV(std::string filename) {
+    std::vector<WorkShift> shifts;
+    std::ifstream file(filename);
+    std::string line;
+
+    if (!file.is_open()){
+        std::cerr <<"Could not open the file" << std::endl;
+        return shifts;
+    }
+
+    // skip the first row of csv file... name, day, etc.
+    std::getline(file, line);
+
+    // read each file line by line
+    while (std::getline(file, line)) {
+        std::stringstream ss(line);
+        std::string name, day, start, end;
+
+        std::getline(ss, name, ',');
+        std::getline(ss, day, ',');
+        std::getline(ss, start, ',');
+        std::getline(ss, end, ',');
+
+        shifts.emplace_back(name, day, start, end);
+    }
+    file.close();
+    return shifts;
 }
 
 
@@ -47,7 +72,7 @@ std::time_t workPlz() {
 
     return work;
 }
-
+int WorkShift::nextID = 1000;
 //call to main function here
 int main() {
     workPlz();
