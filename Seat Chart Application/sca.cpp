@@ -22,12 +22,16 @@ public:
         : employeeName(name), dayOfWeek(day), startTime(start), endTime(end) {
             shiftID = nextID++; //assing current ID then set up next ID
         }
-        int getID() const {return shiftID;}
-    //     employeeName = name;
-    //     dayOfWeek = day;
-    //     startTime = start;
-    //     endTime = end;
-    // }
+    
+    // make getters
+    int getID() const {return shiftID;}
+    std::string getName() const {return employeeName;}
+    std::string getDay() const {return dayOfWeek;}
+
+    // Shift start and end time helper
+    void display() const{
+        std::cout << "ID: " <<shiftID<< " | "<<employeeName<< " ( " <<dayOfWeek<< " " <<startTime << "-" <<endTime << ")" << std::endl;
+    }
 };
 
 //get data from employee csv file
@@ -67,13 +71,28 @@ std::time_t workPlz() {
 
     std::tm* localTime = std::localtime(&work);
 
-    // std::cout << std::put_time(localTime, "%H:%M") << std::endl;
-    std::cout << localTime << std::endl;
+    std::cout << std::put_time(localTime, "%H:%M") << std::endl;
+    // std::cout << localTime << std::endl;
 
     return work;
 }
 int WorkShift::nextID = 1000;
 //call to main function here
 int main() {
+    // tester function
     workPlz();
+
+    std::string filename = "win26hrs.csv";
+    std::vector<WorkShift> myShifts = readCSV(filename);
+
+    if (myShifts.empty()) {
+        std::cout << "No shifts loaded. Check if " <<filename<< " exists and has data" <<std::endl;
+    } else {
+        std::cout << "\n--- Current Schedule ---" <<std::endl;
+        for (const auto& shift : myShifts) {
+            shift.display();
+        }
+    }
+
+    return 0;
 }
