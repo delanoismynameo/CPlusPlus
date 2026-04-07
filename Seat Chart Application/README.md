@@ -26,7 +26,7 @@ To recreate the development environment, you need the following software and/or 
 
 I found these websites useful in developing this software:
 
-* [Wikipedia]((https://en.wikipedia.org/wiki/C%2B%2B#:~:text=C++%20is%20a%20high%2Dlevel%2C%20general%2Dpurpose%20programming%20language,generic%20programming%20(through%20the%20use%20of%20templates)))
+* [Wikipedia](https://en.wikipedia.org/wiki/C%2B%2B#:~:text=C++%20is%20a%20high%2Dlevel%2C%20general%2Dpurpose%20programming%20language,generic%20programming%20(through%20the%20use%20of%20templates))
 * [W3schools] (https://www.w3schools.com/cpp/)
 
 ## Future Work
