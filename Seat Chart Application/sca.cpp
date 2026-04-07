@@ -59,7 +59,7 @@ std::vector<WorkShift> readCSV(std::string filename) {
     std::string line;
 
     if (!file.is_open()) {
-        std::cerr << "Could not open the file" << std::endl;
+        std::cerr << "Could not open the file: " << filename << std::endl;
         return shifts;
     }
 
@@ -145,7 +145,7 @@ int main() {
     }
 
     //Assign seats to avoid schedule overlaps
-    std::vector<std::vector<std::string>> seats(numSeats); // Vector of seats, each holding a list of assigned names
+    std::vector<std::vector<std::string>> seats(numSeats); 
     std::vector<std::string> unassigned;
 
     for (const auto& person : uniqueNames) {
@@ -156,7 +156,7 @@ int main() {
             bool canFit = true;
             for (const auto& occupant : seats[i]) {
                 if (peopleOverlap(person, occupant, myShifts)) {
-                    canFit = false; // Schedule conflicts with someone already in this seat
+                    canFit = false; 
                     break;
                 }
             }
@@ -173,7 +173,7 @@ int main() {
         }
     }
 
-    // Output the seat assignments
+    // Output the seat assignments to Console
     std::cout << "\n--- Seat Assignments ---\n";
     for (int i = 0; i < numSeats; ++i) {
         std::cout << "Seat " << (i + 1) << ": ";
@@ -194,6 +194,40 @@ int main() {
         }
     } else {
          std::cout << "\nSuccess! All employees have been seated without schedule conflicts.\n";
+    }
+
+    // ==========================================
+    // STRETCH CHALLENGE: Write to a .txt file
+    // ==========================================
+    std::ofstream outFile("schedule_results.txt");
+    
+    if (!outFile.is_open()) {
+        std::cerr << "\nError: Could not create the output file 'schedule_results.txt'.\n";
+    } else {
+        outFile << "--- Seat Assignments ---\n";
+        for (int i = 0; i < numSeats; ++i) {
+            outFile << "Seat " << (i + 1) << ": ";
+            if (seats[i].empty()) {
+                outFile << "Empty";
+            } else {
+                for (size_t j = 0; j < seats[i].size(); ++j) {
+                    outFile << seats[i][j] << (j < seats[i].size() - 1 ? ", " : "");
+                }
+            }
+            outFile << "\n";
+        }
+
+        if (!unassigned.empty()) {
+            outFile << "\nWARNING: Not enough seats! The following employees could not be seated:\n";
+            for (const auto& name : unassigned) {
+                outFile << "- " << name << "\n";
+            }
+        } else {
+             outFile << "\nSuccess! All employees have been seated without schedule conflicts.\n";
+        }
+        
+        outFile.close(); // Always close your files!
+        std::cout << "\n[ Note: A copy of these assignments was also saved to 'schedule_results.txt' ]\n";
     }
 
     return 0;
